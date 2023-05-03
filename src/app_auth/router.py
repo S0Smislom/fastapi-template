@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.params import Body, Depends
 from fastapi.security import HTTPBearer
 from pydantic import PositiveInt
-from starlette.status import HTTP_201_CREATED
+from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
 
 from settings.auth import AuthJWT
 
