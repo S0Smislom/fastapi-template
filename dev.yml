@@ -1,0 +1,17 @@
+version: '3'
+services:
+  test-api:
+    container_name: test-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./src:/usr/share/python3/app/code
+    env_file:
+      - ./env/.env
+    environment:
+      - WATCHFILES_FORCE_POLLING=true
+    command: /usr/share/python3/app/bin/python /usr/share/python3/app/code/manage.py runserver
