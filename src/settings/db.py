@@ -1,11 +1,11 @@
 import os
 
-DB_URL = os.getenv("DB_URL")
+DB_URL = os.getenv("DATABASE_URL")
 
 # Tortoise Models
 APP_MODELS = [
     "aerich.models",
-    # "app_main.models",
+    "app_auth.models",
 ]
 
 TORTOISE_ORM: dict = {
@@ -16,6 +16,6 @@ TORTOISE_ORM: dict = {
             "connection": "default",
         },
     },
-    # "use_tz": False,  # надо будет уточнить у фронта, нужно ли ему таймзону передавать
+    # "use_tz": False,
     "timezone": "UTC",
 }
