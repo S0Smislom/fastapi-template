@@ -10,3 +10,12 @@ services:
       - ./env/.env.db
     volumes:
       - ./db_data:/var/lib/postgresql/data
+
+  test-redis:
+    container_name: test-redis
+    image: redis
+    restart: on-failure
+    volumes:
+      - ./redis_data:/data
+    ports:
+      - '6379:6379'

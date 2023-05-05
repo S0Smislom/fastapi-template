@@ -1,6 +1,3 @@
-from pydantic.errors import PydanticValueError
-
-
 class UserPermissionError(ValueError):
     """Base error for access rights"""
 
