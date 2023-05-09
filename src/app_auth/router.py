@@ -7,11 +7,8 @@ from pydantic import PositiveInt
 from settings.auth import AuthJWT, settings
 from settings.redis import auth_redis
 
-from .dependencies import (
-    check_jwt_auth_and_return_user_id,
-    check_refresh_jwt_and_return_user_id,
-    oauth2_custom,
-)
+from .dependencies import (check_jwt_auth_and_return_user_id,
+                           check_refresh_jwt_and_return_user_id, oauth2_custom)
 from .schemas import RestSignup, RestUser
 from .services.auth_service import AuthService
 from .services.user_service import UserService

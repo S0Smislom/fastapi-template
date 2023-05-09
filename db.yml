@@ -6,6 +6,8 @@ services:
     restart: on-failure
     ports:
       - '5432:5432'
+    networks:
+      - test-net
     env_file:
       - ./env/.env.db
     volumes:
@@ -19,3 +21,10 @@ services:
       - ./redis_data:/data
     ports:
       - '6379:6379'
+    networks:
+      - test-net
+
+networks:
+  test-net:
+    external: true
+    driver: bridge

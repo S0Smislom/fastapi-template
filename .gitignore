@@ -69,3 +69,4 @@ docs/_build/
 # PyBuilder
 db_data/
 redis_data/
+migrations/

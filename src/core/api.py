@@ -6,6 +6,8 @@ from core.middlewares import add_middlewares
 from core.router import router
 from settings.db import TORTOISE_ORM
 
+from .admin import app as admin_app
+
 
 def init():
     app = FastAPI(
@@ -32,11 +34,15 @@ def init():
 
     @app.on_event("startup")
     async def startup_event():
-        pass
+        from .startup_events import startup_admin
+
+        await startup_admin(admin_app)
 
     @app.on_event("shutdown")
     async def shutdown_event():
         pass
+
+    app.mount("/admin", admin_app)
 
     return app
 

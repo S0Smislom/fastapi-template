@@ -6,6 +6,7 @@ DB_URL = os.getenv("DATABASE_URL")
 APP_MODELS = [
     "aerich.models",
     "app_auth.models",
+    # "app_main.models",
 ]
 
 TORTOISE_ORM: dict = {

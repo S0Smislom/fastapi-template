@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: on-failure
+    networks:
+      - test-net
     ports:
       - '8000:8000'
     volumes:
@@ -15,3 +17,9 @@ services:
     environment:
       - WATCHFILES_FORCE_POLLING=true
     command: /usr/share/python3/app/bin/python /usr/share/python3/app/code/manage.py runserver
+
+networks:
+  test-net:
+    external: true
+    driver: bridge
+
